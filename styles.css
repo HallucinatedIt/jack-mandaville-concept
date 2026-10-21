@@ -69,3 +69,13 @@
 @media(prefers-reduced-motion:reduce){
  .ticker-track{animation:none;width:100%}.ticker-group{white-space:normal;flex-wrap:wrap;justify-content:center;gap:8px 25px;width:100%;padding:14px 20px;font-size:18px}.ticker-group span{gap:18px}.ticker-group:nth-child(2),.ticker-toggle{display:none}.ticker-window{overflow:visible}
 }
+
+/* About-section links use the same filled/outlined language as the hero. */
+.about-actions{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:27px;max-width:490px}
+.podcast-button{display:flex;flex-direction:column;align-items:flex-start;gap:7px;width:100%;padding:19px 22px;background:var(--ink);color:var(--paper);border:1px solid var(--ink);border-radius:3px;transition:background .18s,transform .18s}
+.podcast-button span{font-size:8px;letter-spacing:.12em;text-transform:uppercase}
+.podcast-button strong{font-family:var(--display);font-size:27px;font-weight:800;line-height:1.1;text-transform:uppercase}
+.podcast-button:hover{background:#424a33;transform:translateY(-2px)}
+.biography-button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:14px 20px;border:1px solid var(--ink);border-radius:3px;font-size:9px;letter-spacing:.07em;text-transform:uppercase;transition:background .18s,transform .18s}
+.biography-button:hover{background:var(--olive);transform:translateY(-2px)}
+@media(max-width:720px){.podcast-button{padding:18px}.podcast-button strong{font-size:25px}.biography-button{padding:14px 17px;font-size:8px}}
