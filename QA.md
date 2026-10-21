@@ -39,3 +39,11 @@ No physical-device testing, Safari/Firefox run, or formal accessibility certific
 ## Live deployment
 
 GitHub Pages deployment run [39642640137](https://github.com/HallucinatedIt/jack-mandaville-concept/actions/runs/39642640137) completed successfully. GitHub ran all five tests, built the static site, and deployed it. The [public site](https://hallucinatedit.github.io/jack-mandaville-concept/) was inspected after deployment: artwork loaded, the date-driven fact rendered, and desktop layout had no horizontal overflow.
+
+## Visual revision — October 21, 2026
+
+- Replaced the framed portrait with a full-width artwork masthead and overlaid navigation; mobile uses a separate crop with text beneath the portrait.
+- Removed decorative arrows, plus signs, and unrelated section/show numbering. Daily fact numbering remains an actual position within the eight-entry rotation.
+- Replaced underlined watch links with platform-labelled buttons.
+- Added a seamless looping text bar, a pause/resume control, hover/focus pause, and a static wrapped layout for reduced-motion preferences.
+- Verified mobile navigation and scrolling-text pause/resume in the browser.

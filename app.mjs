@@ -34,10 +34,10 @@ function renderDailyFact() {
     document.querySelector('#fact-text').textContent = fact.text;
     const episode = document.querySelector('#fact-episode');
     episode.href = fact.episodeUrl;
-    episode.querySelector('strong').textContent = `${fact.episode} ↗`;
+    episode.querySelector('strong').textContent = fact.episode;
     const source = document.querySelector('#fact-source');
     source.href = fact.sourceUrl;
-    source.textContent = `${fact.source} ↗`;
+    source.textContent = fact.source;
     document.querySelector('#fact-index').textContent = `NOTE ${String(index+1).padStart(2,'0')} / ${String(FACTS.length).padStart(2,'0')}`;
     renderedDate = date;
   }
@@ -47,3 +47,16 @@ function renderDailyFact() {
 renderDailyFact();
 document.addEventListener('visibilitychange', () => {if(!document.hidden) renderDailyFact();});
 window.addEventListener('pageshow', renderDailyFact);
+
+const ticker = document.querySelector('.ticker');
+const tickerToggle = document.querySelector('.ticker-toggle');
+if (ticker && tickerToggle) {
+  tickerToggle.hidden = false;
+  tickerToggle.addEventListener('click', () => {
+    const paused = tickerToggle.getAttribute('aria-pressed') !== 'true';
+    tickerToggle.setAttribute('aria-pressed', String(paused));
+    tickerToggle.setAttribute('aria-label', paused ? 'Resume scrolling text' : 'Pause scrolling text');
+    tickerToggle.textContent = paused ? 'RESUME' : 'PAUSE';
+    ticker.classList.toggle('is-paused', paused);
+  });
+}
