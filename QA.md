@@ -4,9 +4,9 @@ Date: October 21, 2026.
 
 ## Automated
 
-- All eight daily facts carry a verified episode URL, independent historical URL, and verification date.
+- All 45 daily facts carry a verified episode URL, independent historical URL, and verification date.
 - Same UTC day produces the same entry; next UTC day advances exactly one entry.
-- All eight entries appear before repetition.
+- All 45 entries appear before repetition.
 - Dates preceding the rotation epoch use a valid positive array index.
 - UTC midnight, timezone offsets, February 29, and December 31 pass boundary checks.
 - Invalid dates are rejected.
@@ -28,7 +28,7 @@ Browser: Codex in-app browser. Mobile checks used viewport simulation, not physi
 - All same-page anchor targets exist.
 - Mobile menu opens, closes after choosing a section, and closes with Escape.
 - Field notebook disclosure expands and exposes the research-page link.
-- Sources page shows eight complete entries and fits the mobile viewport.
+- Sources page shows the full collection and fits the mobile viewport.
 - No JavaScript warning/error messages were reported during these checks.
 - The built site was also checked under `/dist/` to verify project-subpath compatibility.
 
@@ -43,7 +43,13 @@ GitHub Pages deployment run [39642640137](https://github.com/HallucinatedIt/jack
 ## Visual revision — October 21, 2026
 
 - Replaced the framed portrait with a full-width artwork masthead and overlaid navigation; mobile uses a separate crop with text beneath the portrait.
-- Removed decorative arrows, plus signs, and unrelated section/show numbering. Daily fact numbering remains an actual position within the eight-entry rotation.
+- Removed decorative arrows, plus signs, and unrelated section/show numbering. Daily fact numbering remains an actual position within the curated rotation.
 - Replaced underlined watch links with platform-labelled buttons.
 - Added a seamless looping text bar, a pause/resume control, hover/focus pause, and a static wrapped layout for reduced-motion preferences.
 - Verified mobile navigation and scrolling-text pause/resume in the browser.
+
+## Expanded daily collection — October 21, 2026
+
+45 distinct entries across 13 verified episode topics. Added material covers moa, Gurkhas, Pictish Scotland, the 82nd Airborne, the Crusades, Stand Watie, the 1st Marine Division, toilet history, and Mary Walker. Episode titles and links were read from the public Pepperbox catalog. Historical sources are linked per entry. No subscriber-only viewing is claimed. Topic scope is the inclusion criterion; a fact is not represented as a statement made in a video.
+
+The source notebook is generated from the same collection used by the daily card. Tests verify its completeness, unique entries, changing subjects across the cycle boundary, full-cycle rotation, UTC boundaries, and removal of collection-size wording from public copy. No annual uniqueness guarantee is made.

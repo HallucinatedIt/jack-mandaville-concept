@@ -1,4 +1,5 @@
 import {cp,mkdir,rm} from 'node:fs/promises';
+await import('./generate-sources.mjs');
 const root=new URL('./',import.meta.url);
 const output=new URL('./dist/',root);
 await rm(output,{recursive:true,force:true});

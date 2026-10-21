@@ -1,6 +1,6 @@
 # Jack Mandaville — independent website concept
 
-A responsive, static website for Jack Mandaville’s history, comedy, and shows. Includes Jacked History, Palates of the Past, Battle in Najaf, social links, and eight independently sourced daily history notes. The site clearly identifies itself as an unaffiliated mockup.
+A responsive, static website for Jack Mandaville’s history, comedy, and shows. Includes Jacked History, Palates of the Past, Battle in Najaf, social links, and 45 independently sourced daily history notes. The site clearly identifies itself as an unaffiliated mockup.
 
 [Open the live website](https://hallucinatedit.github.io/jack-mandaville-concept/) · [Source repository](https://github.com/HallucinatedIt/jack-mandaville-concept)
 
@@ -54,13 +54,13 @@ Official references: [publishing source settings](https://docs.github.com/en/pag
 
 ## Daily fact behavior
 
-- `facts.mjs` contains eight immutable, reviewed entries across four verified episode topics.
+- `facts.mjs` contains 45 immutable, reviewed entries across 13 verified episode topics.
 - Each entry includes a direct episode link and a separate historical source.
-- Rotation uses the UTC calendar date. October 21, 2026 starts with entry 01; each subsequent UTC day advances one entry. The list repeats every eight days.
+- Rotation uses the UTC calendar date. October 21, 2026 starts with entry 01; each subsequent UTC day advances one entry. The list repeats every 45 days.
 - All visitors see the same entry for the same UTC day. The card refreshes at midnight while open and rechecks when a backgrounded page becomes visible.
 - No API, scheduled job, server database, or daily deployment is needed. The site uses the visitor’s device clock.
 - These are sourced facts about topics covered in Jack’s videos, not claimed transcripts, quotations, or “on this day” anniversaries.
-- Add entries only after verifying the historical claim and an actual published episode covering its topic. Update `sources.html` and the entry-count labels/tests whenever the collection changes. Appending entries changes the modulo rotation for future dates.
+- Add entries only after verifying the historical claim and an actual published episode covering its topic. Run `node generate-sources.mjs` and update the collection-size test whenever the collection changes. Appending entries changes the modulo rotation for future dates.
 
 ## Files
 
@@ -102,3 +102,9 @@ Published successfully on October 21, 2026:
 - [Successful deployment run](https://github.com/HallucinatedIt/jack-mandaville-concept/actions/runs/39642640137)
 
 GitHub’s tests, static build, artifact upload, and deployment all passed. The public site was opened in the browser and checked for loaded artwork, responsive layout, and the working daily fact. A local snapshot branch preserves the initial build before the GitHub history was synchronized.
+
+## Field-note collection update
+
+The current collection has 45 distinct facts across 13 verified episode topics. Topics are interleaved, with no adjacent repeat topic, and the UTC date selects the entry deterministically. The public interface intentionally shows no collection size or cycle counter. This is a repeating collection; it does not promise a full year of unique entries.
+
+Edit `facts.mjs`, then run `node generate-sources.mjs` to regenerate the public source notebook. `npm run build` also regenerates it before packaging. Run `npm test` after updating the collection. Each entry needs a unique ID and title, a topic key, an episode title/link verified in the public catalog, an independent historical citation, and a verification date.

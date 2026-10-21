@@ -1,4 +1,4 @@
-import {FACTS, getDailyFact, millisecondsUntilNextDay} from './facts.mjs';
+import {getDailyFact, millisecondsUntilNextDay} from './facts.mjs?v=20261021-5';
 
 const menu = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#main-nav');
@@ -23,7 +23,7 @@ let renderedDate;
 function renderDailyFact() {
   if(!document.querySelector('#fact-title')) return;
   const now = new Date();
-  const {fact,index,date} = getDailyFact(now);
+  const {fact,date} = getDailyFact(now);
   if(date !== renderedDate) {
     document.querySelector('#fact-label').textContent = 'TODAY’S FIELD NOTE';
     const time = document.querySelector('#fact-date');
@@ -38,7 +38,7 @@ function renderDailyFact() {
     const source = document.querySelector('#fact-source');
     source.href = fact.sourceUrl;
     source.textContent = fact.source;
-    document.querySelector('#fact-index').textContent = `NOTE ${String(index+1).padStart(2,'0')} / ${String(FACTS.length).padStart(2,'0')}`;
+    document.querySelector('#fact-index').textContent = 'VERIFIED TOPIC · SOURCES LINKED';
     renderedDate = date;
   }
   clearTimeout(midnightTimer);

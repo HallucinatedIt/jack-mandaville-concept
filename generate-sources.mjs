@@ -1,0 +1,11 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {FACTS} from './facts.mjs';
+const path=new URL('./sources.html',import.meta.url);
+const escape=value=>value.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+const link=(url,label)=>`<a href="${escape(url)}" target="_blank" rel="noopener noreferrer">${escape(label)}</a>`;
+const intro='<h2 id="fact-sources">THE DAILY FIELD NOTES</h2><p>Field notes update daily at midnight UTC. Each note pairs a historical citation with a verified episode covering the topic. These are independently researched facts, not quotations or transcripts from Jack’s videos. Episode topics were checked against public YouTube and Pepperbox listings. There are no invented “on this day” connections.</p>';
+const entries=FACTS.map(f=>`<article class="source-entry" id="${f.id}"><p class="eyebrow">${escape(f.category)}</p><h3>${escape(f.title)}</h3><p>${escape(f.text)}</p><p>${link(f.episodeUrl,`Topic evidence: ${f.show} — ${f.episode}`)}<br>${link(f.sourceUrl,`Historical source: ${f.source}`)}</p></article>`).join('\n');
+const html=await readFile(path,'utf8');
+const section=/<h2 id="fact-sources">[\s\S]*?(?=<h2 id="credits">)/;
+if(!section.test(html))throw Error('Source notebook boundaries missing.');
+await writeFile(path,html.replace(section,intro+entries));
