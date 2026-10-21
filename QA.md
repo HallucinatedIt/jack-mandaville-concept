@@ -34,4 +34,8 @@ Browser: Codex in-app browser. Mobile checks used viewport simulation, not physi
 
 ## Limits
 
-No live GitHub Pages deployment, physical-device testing, Safari/Firefox run, or formal accessibility certification was performed. Historical content was checked against the cited sources; linked subscriber-only episodes were verified through public catalog listings. Artwork is credited, without a claim of licensing or endorsement.
+No physical-device testing, Safari/Firefox run, or formal accessibility certification was performed. Historical content was checked against the cited sources; linked subscriber-only episodes were verified through public catalog listings. Artwork is credited, without a claim of licensing or endorsement.
+
+## Live deployment
+
+GitHub Pages deployment run [39642640137](https://github.com/HallucinatedIt/jack-mandaville-concept/actions/runs/39642640137) completed successfully. GitHub ran all five tests, built the static site, and deployed it. The [public site](https://hallucinatedit.github.io/jack-mandaville-concept/) was inspected after deployment: artwork loaded, the date-driven fact rendered, and desktop layout had no horizontal overflow.

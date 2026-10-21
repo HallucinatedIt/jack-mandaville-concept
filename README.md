@@ -2,6 +2,8 @@
 
 A responsive, static website for Jack Mandaville’s history, comedy, and shows. Includes Jacked History, Palates of the Past, Battle in Najaf, social links, and eight independently sourced daily history notes. The site clearly identifies itself as an unaffiliated mockup.
 
+[Open the live website](https://hallucinatedit.github.io/jack-mandaville-concept/) · [Source repository](https://github.com/HallucinatedIt/jack-mandaville-concept)
+
 ## Preview locally
 
 From this folder, run:
@@ -14,35 +16,39 @@ Open http://127.0.0.1:4173 in your browser. Stop the server with Ctrl+C when fin
 
 ## Publish on GitHub Pages
 
-### Simplest route — website files only
+### Publish a separate copy — website files only
 
 1. Unzip the accompanying `jack-mandaville-site.zip`.
-2. Sign in to GitHub and create a public repository named `jack-mandaville-concept` (or another name you prefer).
+2. Sign in to GitHub and create a public repository with an unused name of your choice.
 3. Upload the **contents** of the unzipped folder to the repository’s root. `index.html`, `styles.css`, `sources.html`, `app.mjs`, `facts.mjs`, and the `assets` folder must sit directly in the root. Do not upload the ZIP itself or nest everything under another folder.
 4. Commit the files to `main`.
 5. Open **Settings → Pages → Build and deployment → Source → Deploy from a branch**. Select **main** and **/(root)**, then Save.
 6. Wait for the Pages deployment to finish. GitHub will show the published URL in Settings → Pages.
 
-For the connected account and suggested repository name, the expected address is `https://hallucinatedit.github.io/jack-mandaville-concept/`. The deployment status is recorded at the end of this document.
+The deployed original is at `https://hallucinatedit.github.io/jack-mandaville-concept/`. A separate copy will use your selected account and repository name.
 
 ### Source repository route — automated checks and deployment
 
 The full source package includes `.github/workflows/pages.yml`, tests, and a static build script. No npm dependencies or install step are required. Node 22 or newer is recommended.
 
-Create an empty repository, then from this project folder run:
+The delivered local repository already tracks the remote `main` branch. To publish updates after editing:
 
 ```sh
-# The delivered folder is already a local Git repository.
-# If using the source ZIP instead, initialize it first:
-# git init -b main
-# git add .
-# git commit -m "Build Jack Mandaville concept website"
-
-git remote add origin https://github.com/HallucinatedIt/jack-mandaville-concept.git
-git push -u origin main
+npm test
+npm run build
+git add .
+git commit -m "Describe the website update"
+git push
 ```
 
-Under **Settings → Pages → Source**, select **GitHub Actions**. Then open **Actions → Deploy GitHub Pages → Run workflow**. The workflow checks the daily rotation, builds `dist/`, and deploys it. Future pushes to `main` repeat the process. Git authentication is required; this project contains no credentials.
+For a fresh checkout:
+
+```sh
+git clone https://github.com/HallucinatedIt/jack-mandaville-concept.git
+cd jack-mandaville-concept
+```
+
+Pages is already set to **GitHub Actions**. Future pushes to `main` run checks, build `dist/`, and deploy. Git authentication is required for pushing; no credentials are stored in this project. The separate source ZIP has no Git history, so clone the repository for continued development rather than initializing a competing history.
 
 Official references: [publishing source settings](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site), [custom Pages workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
 
@@ -89,4 +95,10 @@ Artwork belongs to its respective rights holders and is included for the request
 
 ## Publishing status
 
-The dedicated public repository is [HallucinatedIt/jack-mandaville-concept](https://github.com/HallucinatedIt/jack-mandaville-concept). The site was prepared and verified locally. Initial publication to GitHub Pages is in progress; confirm its result in the repository’s Pages settings and Actions run.
+Published successfully on October 21, 2026:
+
+- [Live website](https://hallucinatedit.github.io/jack-mandaville-concept/)
+- [Repository](https://github.com/HallucinatedIt/jack-mandaville-concept)
+- [Successful deployment run](https://github.com/HallucinatedIt/jack-mandaville-concept/actions/runs/39642640137)
+
+GitHub’s tests, static build, artifact upload, and deployment all passed. The public site was opened in the browser and checked for loaded artwork, responsive layout, and the working daily fact. A local snapshot branch preserves the initial build before the GitHub history was synchronized.
